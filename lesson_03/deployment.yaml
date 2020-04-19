@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: hello-world-depl
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: hello-world-app-dep
+    template:
+        metadata:
+            labels:
+                app: hello-world-app-dep
+        spec:
+            containers:
+                - name: hello-world-app-dep-con
+                  image: elfastahe/hello.world:v3
+                  ports:
+                      - name: web
+                        containerPort: 8080
+                  livenessProbe:
+                      httpGet:
+                          port: 8080
+                          path: /hello.world/api/v1/health
+                      initialDelaySeconds: 15
+                      periodSeconds: 3
+                      timeoutSeconds: 2
+                  readinessProbe:
+                      httpGet:
+                          port: 8080
+                          path: /hello.world/api/v1/ready
+                      initialDelaySeconds: 5
+                      periodSeconds: 2
