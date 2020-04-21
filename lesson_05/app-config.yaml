@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: dicts-common-config
+data:
+    DATABASE_NAME: decstra.dicts.common
+    DATABASE_USER: decstra
+---
+apiVersion: v1
+kind: Secret
+metadata:
+    name: dicts-common-secret
+type: Opaque
+data:
+#    DATABASE_PASSWORD: 12345
+    DATABASE_PASSWORD: MTIzNDUK

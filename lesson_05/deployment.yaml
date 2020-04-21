@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: dicts-common-d
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: dicts-common-ms
+    template:
+        metadata:
+            labels:
+                app: dicts-common-ms
+        spec:
+            containers:
+                - name: dicts-common-con
+                  image: elfastahe/dicts.common:v1.0.0
+                  ports:
+                      - name: web
+                        containerPort: 8080
+                  livenessProbe:
+                      httpGet:
+                          port: 8080
+                          path: /dicts.common/api/v1/health
+                      initialDelaySeconds: 30
+                      periodSeconds: 3
+                      timeoutSeconds: 2
+                  readinessProbe:
+                      httpGet:
+                          port: 8080
+                          path: /dicts.common/api/v1/ready
+                      initialDelaySeconds: 5
+                      periodSeconds: 2

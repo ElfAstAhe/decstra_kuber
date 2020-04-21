@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+    name: dicts-common-ing
+    annotations:
+        kubernetes.io/ingress.class: "nginx"
+        nginx.ingress.kubernetes.io/rewrite-target: /dicts.common/api/v1/$2
+spec:
+    rules:
+#        - host: hello.world
+        - http:
+              paths:
+                  - path: /otusapp($|/)(.*)
+                    backend:
+                        serviceName: dicts-common-s
+                        servicePort: 9000
