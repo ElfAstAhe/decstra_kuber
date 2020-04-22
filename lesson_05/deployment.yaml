@@ -14,7 +14,7 @@ spec:
         spec:
             containers:
                 - name: dicts-common-con
-                  image: elfastahe/dicts.common:v1.0.0
+                  image: elfastahe/dicts.common:v1.0.1
                   ports:
                       - name: web
                         containerPort: 8080
