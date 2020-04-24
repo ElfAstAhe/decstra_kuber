@@ -29,5 +29,5 @@ spec:
                       httpGet:
                           port: 8080
                           path: /dicts.common/api/v1/ready
-                      initialDelaySeconds: 5
+                      initialDelaySeconds: 30
                       periodSeconds: 2
