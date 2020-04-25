@@ -10,11 +10,93 @@
 			"item": [
 				{
 					"name": "http://arch.homework/otusapp/country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "13563bcb-02f2-460f-86a4-c4033b3dff72",
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody)",
+									"pm.collectionVariables.set(\"countryId\", responseJSON[\"id\"])",
+									"pm.collectionVariables.set(\"countryCode\", responseJSON[\"code\"])"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"code\": \"RUS4\",\n   \"comments\": null,\n   \"description\": \"Российская Федерация\",\n   \"isDeleted\": false,\n   \"name\": \"Россия\",\n   \"numCode\": \"643\",\n   \"smallCode\": \"RU\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://arch.homework/otusapp/country?",
+							"protocol": "http",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"otusapp",
+								"country"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://arch.homework/otusapp/country/{id}",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://arch.homework/otusapp/country?code=&",
+							"raw": "http://arch.homework/otusapp/country/:id?",
+							"protocol": "http",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"otusapp",
+								"country",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{countryId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://arch.homework/otusapp/country",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://arch.homework/otusapp/country?code={{countryCode}}&",
 							"protocol": "http",
 							"host": [
 								"arch",
@@ -27,68 +109,8 @@
 							"query": [
 								{
 									"key": "code",
-									"value": ""
+									"value": "{{countryCode}}"
 								},
-								{
-									"key": "",
-									"value": null
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "http://arch.homework/otusapp/country",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "http://arch.homework/otusapp/country?",
-							"protocol": "http",
-							"host": [
-								"arch",
-								"homework"
-							],
-							"path": [
-								"otusapp",
-								"country"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": null
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "http://arch.homework/otusapp/country",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "http://arch.homework/otusapp/country?",
-							"protocol": "http",
-							"host": [
-								"arch",
-								"homework"
-							],
-							"path": [
-								"otusapp",
-								"country"
-							],
-							"query": [
 								{
 									"key": "",
 									"value": null
@@ -115,6 +137,41 @@
 								"country",
 								"list",
 								"all"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://arch.homework/otusapp/country",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 10,\n   \"code\": \"RUS3\",\n   \"comments\": \"update comments\",\n   \"description\": \"Российская Федерация update data\",\n   \"isDeleted\": false,\n   \"name\": \"Россия\",\n   \"numCode\": \"643\",\n   \"smallCode\": \"RU\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://arch.homework/otusapp/country?",
+							"protocol": "http",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"otusapp",
+								"country"
 							],
 							"query": [
 								{
@@ -191,40 +248,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "http://arch.homework/otusapp/country/{id}",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://arch.homework/otusapp/country/:id?",
-							"protocol": "http",
-							"host": [
-								"arch",
-								"homework"
-							],
-							"path": [
-								"otusapp",
-								"country",
-								":id"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": null
-								}
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
+									"value": "{{countryId}}"
 								}
 							]
 						}
@@ -306,11 +330,93 @@
 			"item": [
 				{
 					"name": "http://arch.homework/otusapp/currency",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cadb9f26-f2ee-4b5d-bc9e-cc5f3307c372",
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody)",
+									"pm.collectionVariables.set(\"currencyId\", responseJSON[\"id\"])",
+									"pm.collectionVariables.set(\"currencyCode\", responseJSON[\"isoCode\"])"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"comments\": null,\n   \"countryName\": \"Россия\",\n   \"description\": null,\n   \"isDeleted\": false,\n   \"isoCode\": \"RUB\",\n   \"name\": \"Российский рубль\",\n   \"numCode\": \"643\",\n   \"sign\": \"р\",\n   \"smallCode\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://arch.homework/otusapp/currency?",
+							"protocol": "http",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"otusapp",
+								"currency"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://arch.homework/otusapp/currency/{id}",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://arch.homework/otusapp/currency?code=&",
+							"raw": "http://arch.homework/otusapp/currency/:id?",
+							"protocol": "http",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"otusapp",
+								"currency",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{currencyId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://arch.homework/otusapp/currency",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://arch.homework/otusapp/currency?code={{currencyCode}}&",
 							"protocol": "http",
 							"host": [
 								"arch",
@@ -323,68 +429,8 @@
 							"query": [
 								{
 									"key": "code",
-									"value": ""
+									"value": "{{currencyCode}}"
 								},
-								{
-									"key": "",
-									"value": null
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "http://arch.homework/otusapp/currency",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "http://arch.homework/otusapp/currency?",
-							"protocol": "http",
-							"host": [
-								"arch",
-								"homework"
-							],
-							"path": [
-								"otusapp",
-								"currency"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": null
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "http://arch.homework/otusapp/currency",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "http://arch.homework/otusapp/currency?",
-							"protocol": "http",
-							"host": [
-								"arch",
-								"homework"
-							],
-							"path": [
-								"otusapp",
-								"currency"
-							],
-							"query": [
 								{
 									"key": "",
 									"value": null
@@ -411,6 +457,41 @@
 								"currency",
 								"list",
 								"all"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://arch.homework/otusapp/currency",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 12,\n   \"comments\": \"обновление\",\n   \"countryName\": \"Россия 2\",\n   \"description\": null,\n   \"isDeleted\": false,\n   \"isoCode\": \"RUB 2\",\n   \"name\": \"Российский рубль 2\",\n   \"numCode\": \"643 2\",\n   \"sign\": \"р 2\",\n   \"smallCode\": null\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://arch.homework/otusapp/currency?",
+							"protocol": "http",
+							"host": [
+								"arch",
+								"homework"
+							],
+							"path": [
+								"otusapp",
+								"currency"
 							],
 							"query": [
 								{
@@ -487,40 +568,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "http://arch.homework/otusapp/currency/{id}",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://arch.homework/otusapp/currency/:id?",
-							"protocol": "http",
-							"host": [
-								"arch",
-								"homework"
-							],
-							"path": [
-								"otusapp",
-								"currency",
-								":id"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": null
-								}
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
+									"value": "{{currencyId}}"
 								}
 							]
 						}
@@ -813,20 +861,44 @@
 	],
 	"variable": [
 		{
-			"id": "718396a5-6ff8-4afc-8504-51c0afd6ff24",
+			"id": "681385db-16f3-496c-8910-670b81f01279",
 			"key": "cryptoCurrencyId",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "0a6d8910-e6f6-4876-9e6b-72587906e23c",
+			"id": "cbba4c8e-7ac3-42f7-a4a9-65fce3d292be",
 			"key": "baseUrl",
 			"value": "arch.homework",
 			"type": "string"
 		},
 		{
-			"id": "dbcd5e01-2a9c-4af7-9c39-5dd80ee736f7",
+			"id": "f1628796-c9a0-4d9e-a24e-6ccec26f5f7b",
 			"key": "cryptoCurrencyCode",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "ee62d91b-442b-4baf-a412-05f80b4c84cc",
+			"key": "countryId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "50483e91-7e67-4b3c-b6c3-d1b34088472e",
+			"key": "countryCode",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "1ca68bd4-49c7-42e6-b68d-e430ebad7a70",
+			"key": "currencyId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "ce4f6e9f-fc8a-4270-b9af-63c944b06159",
+			"key": "currencyCode",
 			"value": "",
 			"type": "string"
 		}
