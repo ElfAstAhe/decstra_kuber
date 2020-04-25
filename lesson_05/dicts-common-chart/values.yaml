@@ -72,6 +72,7 @@ tolerations: []
 affinity: {}
 
 postgresql:
+  fullnameOverride: postgres-dicts-common
   fullname: postgres-dicts-common
   name: postgres-dicts-common
   enabled: true

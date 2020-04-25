@@ -535,16 +535,97 @@
 			"name": "cryptoCurrency",
 			"item": [
 				{
-					"name": "http://arch.homework/otusapp/cryptoCurrency",
+					"name": "Создать крипту",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ebc6a874-f4bc-4985-a321-7c49cd789746",
+								"exec": [
+									"var responseJSON = JSON.parse(responseBody)",
+									"pm.collectionVariables.set(\"cryptoCurrencyId\", responseJSON[\"id\"])",
+									"pm.collectionVariables.set(\"cryptoCurrencyCode\", responseJSON[\"code\"])"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"code\": \"eth50\",\n\t\"name\": \"Etherium\",\n\t\"isDeleted\": false,\n\t\"description\": \"etherium crypto currency\",\n\t\"comments\": \"коменты на этериум\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{baseUrl}}/otusapp/cryptoCurrency?",
+							"protocol": "http",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"otusapp",
+								"cryptoCurrency"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Получить крипту по id",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://arch.homework/otusapp/cryptoCurrency?code=&",
+							"raw": "http://{{baseUrl}}/otusapp/cryptoCurrency/:id?",
 							"protocol": "http",
 							"host": [
-								"arch",
-								"homework"
+								"{{baseUrl}}"
+							],
+							"path": [
+								"otusapp",
+								"cryptoCurrency",
+								":id"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{cryptoCurrencyId}}",
+									"type": "string"
+								}
+							]
+						},
+						"description": "http://arch.homework/otusapp/cryptoCurrency/{id}"
+					},
+					"response": []
+				},
+				{
+					"name": "Получить крипту по коду",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{baseUrl}}/otusapp/cryptoCurrency?code={{cryptoCurrencyCode}}&",
+							"protocol": "http",
+							"host": [
+								"{{baseUrl}}"
 							],
 							"path": [
 								"otusapp",
@@ -553,32 +634,37 @@
 							"query": [
 								{
 									"key": "code",
-									"value": ""
+									"value": "{{cryptoCurrencyCode}}"
 								},
 								{
 									"key": "",
 									"value": null
 								}
 							]
-						}
+						},
+						"description": "http://arch.homework/otusapp/cryptoCurrency"
 					},
 					"response": []
 				},
 				{
-					"name": "http://arch.homework/otusapp/cryptoCurrency",
+					"name": "Обновить крипту",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
-							"mode": "formdata",
-							"formdata": []
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 1,\n\t\"code\": \"update_code\",\n\t\"isDeleted\": false,\n\t\"description\": \"обновлённое описание\",\n\t\"comments\": \"обновлённые коменты\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
-							"raw": "http://arch.homework/otusapp/cryptoCurrency?",
+							"raw": "http://{{baseUrl}}/otusapp/cryptoCurrency?",
 							"protocol": "http",
 							"host": [
-								"arch",
-								"homework"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"otusapp",
@@ -595,46 +681,15 @@
 					"response": []
 				},
 				{
-					"name": "http://arch.homework/otusapp/cryptoCurrency",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
-						"url": {
-							"raw": "http://arch.homework/otusapp/cryptoCurrency?",
-							"protocol": "http",
-							"host": [
-								"arch",
-								"homework"
-							],
-							"path": [
-								"otusapp",
-								"cryptoCurrency"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": null
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "http://arch.homework/otusapp/cryptoCurrency/list/all",
+					"name": "Получить весь справочник крипты",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://arch.homework/otusapp/cryptoCurrency/list/all?",
+							"raw": "http://{{baseUrl}}/otusapp/cryptoCurrency/list/all?",
 							"protocol": "http",
 							"host": [
-								"arch",
-								"homework"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"otusapp",
@@ -648,21 +703,21 @@
 									"value": null
 								}
 							]
-						}
+						},
+						"description": "http://arch.homework/otusapp/cryptoCurrency/list/all"
 					},
 					"response": []
 				},
 				{
-					"name": "http://arch.homework/otusapp/cryptoCurrency/list",
+					"name": "Получить справочник крипты по условию отбора",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://arch.homework/otusapp/cryptoCurrency/list?fromRow=0&rowCount=100&",
+							"raw": "http://{{baseUrl}}/otusapp/cryptoCurrency/list?fromRow=0&rowCount=100&",
 							"protocol": "http",
 							"host": [
-								"arch",
-								"homework"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"otusapp",
@@ -683,25 +738,28 @@
 									"value": null
 								}
 							]
-						}
+						},
+						"description": "http://arch.homework/otusapp/cryptoCurrency/list"
 					},
 					"response": []
 				},
 				{
-					"name": "http://arch.homework/otusapp/cryptoCurrency/{id}",
+					"name": "Удалить крипту",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "formdata",
-							"formdata": []
+							"formdata": [],
+							"options": {
+								"formdata": {}
+							}
 						},
 						"url": {
-							"raw": "http://arch.homework/otusapp/cryptoCurrency/:id?",
+							"raw": "http://{{baseUrl}}/otusapp/cryptoCurrency/:id?",
 							"protocol": "http",
 							"host": [
-								"arch",
-								"homework"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"otusapp",
@@ -717,49 +775,60 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": ""
+									"value": "{{cryptoCurrencyId}}",
+									"type": "string"
 								}
 							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "http://arch.homework/otusapp/cryptoCurrency/{id}",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://arch.homework/otusapp/cryptoCurrency/:id?",
-							"protocol": "http",
-							"host": [
-								"arch",
-								"homework"
-							],
-							"path": [
-								"otusapp",
-								"cryptoCurrency",
-								":id"
-							],
-							"query": [
-								{
-									"key": "",
-									"value": null
-								}
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
-							]
-						}
+						},
+						"description": "http://arch.homework/otusapp/cryptoCurrency/{id}"
 					},
 					"response": []
 				}
 			],
 			"description": "cryptoCurrency",
 			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "63eecbbc-f9bb-4df3-874f-d6329c02fcad",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "f41b7730-cfb6-4f61-89b5-13f38821931c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "718396a5-6ff8-4afc-8504-51c0afd6ff24",
+			"key": "cryptoCurrencyId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "0a6d8910-e6f6-4876-9e6b-72587906e23c",
+			"key": "baseUrl",
+			"value": "arch.homework",
+			"type": "string"
+		},
+		{
+			"id": "dbcd5e01-2a9c-4af7-9c39-5dd80ee736f7",
+			"key": "cryptoCurrencyCode",
+			"value": "",
+			"type": "string"
 		}
 	],
 	"protocolProfileBehavior": {}
