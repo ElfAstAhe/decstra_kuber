@@ -24,3 +24,6 @@
 
 # postman
 коллекция подготовлена для отработки тестового кейса (см. описание тестового кейса hw_task.odt)
+
+# newman
+`newman run ./postman/elfastahe-hw5-collection.postman_collection.json --verbose --color on`
