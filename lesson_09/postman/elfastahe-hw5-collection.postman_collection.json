@@ -1,0 +1,686 @@
+{
+	"info": {
+		"_postman_id": "5470407b-41ba-4197-89dd-ad465d40a3bb",
+		"name": "elfastahe-hw5-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Register user 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "333f1b74-1d06-4af0-bf45-8b648786d010",
+						"exec": [
+							"var responseJson = JSON.parse(responseBody)",
+							"pm.collectionVariables.set(\"authToken\", responseJson.jwtToken)",
+							"pm.collectionVariables.set(\"username\", responseJson.userInfo.username)",
+							"pm.collectionVariables.set(\"password\", responseJson.userInfo.password)",
+							"pm.collectionVariables.set(\"secret\", responseJson.userInfo.secret)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullName\": \"{{$randomFullName}}\",\n    \"password\": \"{{$randomPassword}}\",\n    \"secret\": \"{{$randomUUID}}\",\n    \"username\": \"{{$randomUserName}}\",\n    \"phone\": \"{{$randomPhoneNumber}}\",\n    \"eMail\": \"{{$randomEmail}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/register",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"profile",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user 1 profile wo auth",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"profile",
+						":username"
+					],
+					"variable": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change user 1 profile wo auth",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullName\": \"{{$randomFullName}}\",\n    \"password\": \"{{$randomPassword}}\",\n    \"secret\": \"{{$randomUUID}}\",\n    \"username\": \"{{username}}\",\n    \"phone\": \"{{$randomPhoneNumber}}\",\n    \"eMail\": \"{{$randomEmail}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"profile",
+						":username"
+					],
+					"variable": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate user 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4f1eeb11-250a-44c5-9819-01e374a083ed",
+						"exec": [
+							"var responseJSON = JSON.parse(responseBody)",
+							"pm.collectionVariables.set(\"authToken\", responseJSON[\"jwtToken\"])"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/auth/login/test?username={{username}}&password={{password}}&secret={{secret}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"auth",
+						"login",
+						"test"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "{{username}}"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}"
+						},
+						{
+							"key": "secret",
+							"value": "{{secret}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user 1 profile",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"profile",
+						":username"
+					],
+					"variable": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change user 1 profile",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullName\": \"{{$randomFullName}}\",\n    \"password\": \"{{$randomPassword}}\",\n    \"secret\": \"{{$randomUUID}}\",\n    \"username\": \"{{username}}\",\n    \"phone\": \"{{$randomPhoneNumber}}\",\n    \"eMail\": \"{{$randomEmail}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"profile",
+						":username"
+					],
+					"variable": [
+						{
+							"key": "username",
+							"type": "string",
+							"value": "{{username}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user 1 profile",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"profile",
+						":username"
+					],
+					"variable": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register user 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b9ea8931-dd4a-43e7-b825-b443cad0688c",
+						"exec": [
+							"var responseJson = JSON.parse(responseBody)",
+							"pm.collectionVariables.set(\"authToken2\", responseJson.jwtToken)",
+							"pm.collectionVariables.set(\"username2\", responseJson.userInfo.username)",
+							"pm.collectionVariables.set(\"password2\", responseJson.userInfo.password)",
+							"pm.collectionVariables.set(\"secret2\", responseJson.userInfo.secret)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullName\": \"{{$randomFullName}}\",\n    \"password\": \"{{$randomPassword}}\",\n    \"secret\": \"{{$randomUUID}}\",\n    \"username\": \"{{$randomUserName}}\",\n    \"phone\": \"{{$randomPhoneNumber}}\",\n    \"eMail\": \"{{$randomEmail}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/register",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"profile",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate user 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f0270c33-5caf-45ec-bffb-c496f8fa640b",
+						"exec": [
+							"var responseJSON = JSON.parse(responseBody)",
+							"pm.collectionVariables.set(\"authToken2\", responseJSON[\"jwtToken\"])"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/auth/login/test?username={{username2}}&password={{password2}}&secret={{secret2}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"auth",
+						"login",
+						"test"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "{{username2}}"
+						},
+						{
+							"key": "password",
+							"value": "{{password2}}"
+						},
+						{
+							"key": "secret",
+							"value": "{{secret2}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user 1 profile by user 2",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"profile",
+						":username"
+					],
+					"variable": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change user 1 profile by user 2",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{authToken2}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fullName\": \"{{$randomFullName}}\",\n    \"password\": \"{{$randomPassword}}\",\n    \"secret\": \"{{$randomUUID}}\",\n    \"username\": \"{{username}}\",\n    \"phone\": \"{{$randomPhoneNumber}}\",\n    \"eMail\": \"{{$randomEmail}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"profile",
+						":username"
+					],
+					"variable": [
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "05d791bf-97ce-4896-af83-59f62bfba669",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "87a218c8-7731-4e37-ab91-178201d8bf79",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "0ab552e0-493d-4e89-ad86-a3d80582c6f5",
+			"key": "baseUrl",
+			"value": "arch.homework"
+		},
+		{
+			"id": "b395892a-a5c1-4a58-9e0a-36ad4c367c21",
+			"key": "password",
+			"value": ""
+		},
+		{
+			"id": "1cd84717-e986-4f7c-bbe6-f3453f144c4a",
+			"key": "secret",
+			"value": ""
+		},
+		{
+			"id": "6b65951a-d2ce-4fd7-a77d-8e2d931d8017",
+			"key": "authToken",
+			"value": ""
+		},
+		{
+			"id": "03c14b76-e1c9-45c2-b0c5-9b27e354dfd2",
+			"key": "username",
+			"value": ""
+		},
+		{
+			"id": "b51d32d9-1787-44c6-9978-0b999c4bfa3f",
+			"key": "username2",
+			"value": ""
+		},
+		{
+			"id": "cdc73d2f-e8b9-4776-8107-7d02c6ddb949",
+			"key": "password2",
+			"value": ""
+		},
+		{
+			"id": "c73f4bf0-8ebd-4ed9-8d96-257800324618",
+			"key": "authToken2",
+			"value": ""
+		},
+		{
+			"id": "a8928f8d-c007-49f4-b598-06b6389e59d4",
+			"key": "secret2",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}
