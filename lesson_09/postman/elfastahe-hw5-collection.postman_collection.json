@@ -47,13 +47,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/register",
+					"raw": "http://{{baseUrl}}/auth/api/v1/profile/register",
 					"protocol": "http",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"otusapp",
+						"auth",
 						"api",
 						"v1",
 						"profile",
@@ -83,13 +83,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"raw": "http://{{baseUrl}}/auth/api/v1/profile/:username",
 					"protocol": "http",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"otusapp",
+						"auth",
 						"api",
 						"v1",
 						"profile",
@@ -135,13 +135,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"raw": "http://{{baseUrl}}/auth/api/v1/profile/:username",
 					"protocol": "http",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"otusapp",
+						"auth",
 						"api",
 						"v1",
 						"profile",
@@ -191,13 +191,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://{{baseUrl}}/otusapp/api/v1/auth/login/test?username={{username}}&password={{password}}&secret={{secret}}",
+					"raw": "http://{{baseUrl}}/auth/api/v1/auth/login/test?username={{username}}&password={{password}}&secret={{secret}}",
 					"protocol": "http",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"otusapp",
+						"auth",
 						"api",
 						"v1",
 						"auth",
@@ -249,13 +249,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"raw": "http://{{baseUrl}}/auth/api/v1/profile/:username",
 					"protocol": "http",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"otusapp",
+						"auth",
 						"api",
 						"v1",
 						"profile",
@@ -308,13 +308,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"raw": "http://{{baseUrl}}/auth/api/v1/profile/:username",
 					"protocol": "http",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"otusapp",
+						"auth",
 						"api",
 						"v1",
 						"profile",
@@ -358,13 +358,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"raw": "http://{{baseUrl}}/auth/api/v1/profile/:username",
 					"protocol": "http",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"otusapp",
+						"auth",
 						"api",
 						"v1",
 						"profile",
@@ -423,13 +423,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/register",
+					"raw": "http://{{baseUrl}}/auth/api/v1/profile/register",
 					"protocol": "http",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"otusapp",
+						"auth",
 						"api",
 						"v1",
 						"profile",
@@ -472,13 +472,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://{{baseUrl}}/otusapp/api/v1/auth/login/test?username={{username2}}&password={{password2}}&secret={{secret2}}",
+					"raw": "http://{{baseUrl}}/auth/api/v1/auth/login/test?username={{username2}}&password={{password2}}&secret={{secret2}}",
 					"protocol": "http",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"otusapp",
+						"auth",
 						"api",
 						"v1",
 						"auth",
@@ -530,13 +530,13 @@
 					}
 				],
 				"url": {
-					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"raw": "http://{{baseUrl}}/auth/api/v1/profile/:username",
 					"protocol": "http",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"otusapp",
+						"auth",
 						"api",
 						"v1",
 						"profile",
@@ -589,13 +589,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseUrl}}/otusapp/api/v1/profile/:username",
+					"raw": "http://{{baseUrl}}/auth/api/v1/profile/:username",
 					"protocol": "http",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
-						"otusapp",
+						"auth",
 						"api",
 						"v1",
 						"profile",
