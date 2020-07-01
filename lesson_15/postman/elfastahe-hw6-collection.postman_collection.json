@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "5a377329-2ad4-4bc6-93e6-23dc347ec7a7",
+		"name": "elfastahe-hw6-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get btc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrency/{{cryptoCurrencyId}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrency",
+						"{{cryptoCurrencyId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get btc NO CACHE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrencyNoCache/{{cryptoCurrencyId}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrencyNoCache",
+						"{{cryptoCurrencyId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get btc Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrency/{{cryptoCurrencyId}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrency",
+						"{{cryptoCurrencyId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get btc NO CACHE Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrencyNoCache/{{cryptoCurrencyId}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrencyNoCache",
+						"{{cryptoCurrencyId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get btc Copy Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrency/{{cryptoCurrencyId}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrency",
+						"{{cryptoCurrencyId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get btc NO CACHE Copy Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrencyNoCache/{{cryptoCurrencyId}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrencyNoCache",
+						"{{cryptoCurrencyId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get btc Copy Copy Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrency/{{cryptoCurrencyId}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrency",
+						"{{cryptoCurrencyId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get btc NO CACHE Copy Copy Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrencyNoCache/{{cryptoCurrencyId}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrencyNoCache",
+						"{{cryptoCurrencyId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get btc Copy Copy Copy Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrency/{{cryptoCurrencyId}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrency",
+						"{{cryptoCurrencyId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get btc NO CACHE Copy Copy Copy Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrencyNoCache/{{cryptoCurrencyId}}",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrencyNoCache",
+						"{{cryptoCurrencyId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrency/list/all",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrency",
+						"list",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c08138f3-67fa-474c-80a5-af18701f63f2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7fac824c-6ab8-4d68-a732-829464e99b98",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "71a6ec1b-c44e-41fb-bb01-0f6725ce2585",
+			"key": "baseUrl",
+			"value": "arch.homework"
+		},
+		{
+			"id": "ccf528df-9648-4ad9-bed6-9c7ccc9cb6ac",
+			"key": "cryptoCurrencyId",
+			"value": "2"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
