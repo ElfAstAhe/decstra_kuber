@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "91dec931-0443-4d01-aab8-a573eb7a85cf",
+		"name": "elfastahe-hw11-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add fake quote",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cryptoCurrency\": \"BTC\",\n  \"cryptoCurrencyValue\": 1.0000,\n  \"cryptoExchange\": \"fake\",\n  \"currency\": \"USD\",\n  \"currencyValue\": 9905.7704,\n  \"quoteDate\": \"2020-03-01T00:41:22.862+03:00\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrencyQuote",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrencyQuote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add fake 2 quote",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cryptoCurrency\": \"BTC\",\n  \"cryptoCurrencyValue\": 1.0000,\n  \"cryptoExchange\": \"fake_2\",\n  \"currency\": \"USD\",\n  \"currencyValue\": 9905.7704,\n  \"quoteDate\": \"2020-03-01T00:41:22.862+03:00\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrencyQuote",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrencyQuote"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add trash quote",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"cryptoCurrency\": \"BTC\",\n  \"cryptoCurrencyValue\": 1.0000,\n  \"cryptoExchange\": \"trash\",\n  \"currency\": \"USD\",\n  \"currencyValue\": 9905.7704,\n  \"quoteDate\": \"2020-03-01T00:41:22.862+03:00\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrencyQuote",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrencyQuote"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ec43926c-93a5-47ae-8f37-eb15b12f7628",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "02484a97-a2bc-4a85-a92e-b0e3cbb6420d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "38c0137a-b676-4e46-8614-8c8317e91725",
+			"key": "baseUrl",
+			"value": "arch.homework"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
