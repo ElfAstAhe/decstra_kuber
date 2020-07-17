@@ -23,7 +23,47 @@
 ####Внимание!!! возможен перезапуск контейнера с микро-сервисом (не пугайтесь)
 
 # postman
-коллекция подготовлена для отработки тестового кейса (см. описание тестового кейса hw_task.odt)
+Коллекция подготовлена для отработки тестового кейса. После запуска должно сгенерироваться 3 записи:
+* в партицию fake
+* в партицию fake_2
+* в таблицу мусора trash
 
 # newman
 `newman run ./postman/elfastahe-hw11-collection.postman_collection.json --verbose --color on`
+
+# проверки
+`-- check all records`\
+`select`\
+`    *`\
+`from`\
+`    public.crypto_currency_quotes`\
+`;`\
+`Total query runtime: 16 msec`\
+` 2 rows retrieved.`\
+\
+`-- check fake partition records`\
+`select`\
+`    *`\
+`from`\
+`    public.crypto_currency_quotes_fake`\
+`;`\
+`Total query runtime: 16 msec`\
+` 1 rows retrieved.`\
+\
+`-- check fake_2 partition records`\
+`select`\
+`    *`\
+`from`\
+`    public.crypto_currency_quotes_fake_2`\
+`;`\
+`Total query runtime: 16 msec`\
+` 1 rows retrieved.`\
+\
+`-- check trash records`\
+`select`\
+`    *`\
+`from`\
+`    public.crypto_currency_quotes_trash`\
+`;`\
+`Total query runtime: 16 msec`\
+` 1 rows retrieved.`

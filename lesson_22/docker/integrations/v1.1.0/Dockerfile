@@ -4,15 +4,15 @@ FROM payara/server-full:5.201
 # docker image at: https://hub.docker.com/r/payara/server-full
 # docker file at: https://github.com/payara/docker-payaraserver-full
 
-ENV DATA_SOURCE_NAME="jdbc/dicts.common"\
-    POOL_NAME="pool/decstra.dicts.common"\
+ENV DATA_SOURCE_NAME="jdbc/integrations"\
+    POOL_NAME="pool/decstra.integrations"\
     DATABASE_NAME="decstra.integrations"\
     DATABASE_SCHEMA="public"\
     DATABASE_USER="decstra"\
     DATABASE_PASSWORD="12345"\
     DATABASE_APP_NAME="integrations"\
     DB_SERVER="postgres-integrations"\
-    DB_PORT="12345"\
+    DB_PORT="5432"\
     APP_NAME="integrations-1.1.0.war"
 
 # switch to payara system user
