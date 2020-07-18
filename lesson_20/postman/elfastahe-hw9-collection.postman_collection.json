@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "f826a4d1-67ec-4061-a36b-0ff9f2f24f41",
+		"name": "elfastahe-hw9-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create instance",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"code\": \"btcs\",\n  \"name\": \"Bitcoin super\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseUrl}}/otusapp/api/v1/cryptoCurrency",
+					"protocol": "http",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"otusapp",
+						"api",
+						"v1",
+						"cryptoCurrency"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create with same idempotent key",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"code\": \"btcs\",\n  \"name\": \"Super bitcoin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "86f60298-5a4e-47c9-8be6-b0a3d20dfcf0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "11fcda45-9d57-484f-a415-5581493bd5d9",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "ed89e614-d4ea-4e3a-8bef-743812616b53",
+			"key": "baseUrl",
+			"value": "arch.homework"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

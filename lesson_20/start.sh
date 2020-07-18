@@ -1,1 +1,1 @@
-sudo helm install integrations ./integrations-chart --create-namespace
+sudo helm install dicts-common ./dicts-common-chart --create-namespace

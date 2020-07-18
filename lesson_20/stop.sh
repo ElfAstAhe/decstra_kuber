@@ -1,1 +1,1 @@
-sudo helm uninstall integrations
+sudo helm uninstall dicts-common

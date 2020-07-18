@@ -1,1 +1,1 @@
-sudo docker rmi elfastahe/integrations:v1.1.0
+sudo docker rmi elfastahe/dicts.common:v1.1.1

@@ -1,6 +1,7 @@
-##Домашнее задание #11
-# диаграмма
-![lesson_22_db_shard_diagram.png](./diagram/lesson_22_db_shard_diagram.png)
+##Домашнее задание #6
+
+# idempotence pattern
+Используется паттерн идемпотентного ключа. Идемпотентным ключём является код крипто-валюты.
 
 # docker
 `./build.sh` - собрать образы (linux)
@@ -13,57 +14,14 @@
 `./stop.sh` - останов (linux)
 ## командная строка
 ### запуск
-`sudo kubectl apply -f integrations-ingress.yaml`
-\
-`sudo helm install integrations ./integrations-chart`
+`sudo helm install dicts-common ./dicts-common-chart --create-namespace`
 ### останов
-`sudo helm uninstall integrations`
-\
-`sudo kubectl delete ingress integrations-proxy`
+`sudo helm uninstall dicts-common`
+
 ####Внимание!!! возможен перезапуск контейнера с микро-сервисом (не пугайтесь)
 
 # postman
-Коллекция подготовлена для отработки тестового кейса. После запуска должно сгенерироваться 3 записи:
-* в партицию fake
-* в партицию fake_2
-* в таблицу мусора trash
+коллекция подготовлена для отработки тестового кейса.
 
 # newman
-`newman run ./postman/elfastahe-hw11-collection.postman_collection.json --verbose --color on`
-
-# проверки
-`-- check all records`\
-`select`\
-`    *`\
-`from`\
-`    public.crypto_currency_quotes`\
-`;`\
-`Total query runtime: 16 msec`\
-` 2 rows retrieved.`\
-\
-`-- check fake partition records`\
-`select`\
-`    *`\
-`from`\
-`    public.crypto_currency_quotes_fake`\
-`;`\
-`Total query runtime: 16 msec`\
-` 1 rows retrieved.`\
-\
-`-- check fake_2 partition records`\
-`select`\
-`    *`\
-`from`\
-`    public.crypto_currency_quotes_fake_2`\
-`;`\
-`Total query runtime: 16 msec`\
-` 1 rows retrieved.`\
-\
-`-- check trash records`\
-`select`\
-`    *`\
-`from`\
-`    public.crypto_currency_quotes_trash`\
-`;`\
-`Total query runtime: 16 msec`\
-` 1 rows retrieved.`
+`newman run ./postman/elfastahe-hw9-collection.postman_collection.json --verbose --color on`
