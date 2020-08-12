@@ -5,12 +5,12 @@
 replicaCount: 1
 
 image:
-  repository: elfastahe/integrations
+  repository: elfastahe/calculations.calc02
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []
-nameOverride: "integrations"
-fullnameOverride: "integrations"
+nameOverride: "calculations-calc02"
+fullnameOverride: "calculations-calc02"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -40,14 +40,14 @@ ingress:
   enabled: true
   annotations: {
     kubernetes.io/ingress.class: "nginx",
-    nginx.ingress.kubernetes.io/rewrite-target: /integrations/$2
+    nginx.ingress.kubernetes.io/rewrite-target: /calculations.calc02/$2
   }
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
     - host: arch.homework
 #    - host:
-      paths: [/integr($|/)(.*)]
+      paths: [/calc.fake($|/)(.*)]
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
@@ -72,13 +72,13 @@ tolerations: []
 affinity: {}
 
 postgresql:
-  fullnameOverride: postgres-integrations
-  fullname: postgres-integrations
-  name: postgres-integrations
+  fullnameOverride: postgres-calculations-calc02
+  fullname: postgres-calculations-calc02
+  name: postgres-calculations-calc02
   enabled: true
   postgresqlUsername: decstra
   postgresqlPassword: '12345'
-  postgresqlDatabase: decstra.integrations
+  postgresqlDatabase: decstra.calculations.calc02
   service:
-    name: postgres-integrations
+    name: postgres-calculations-calc02
     port: "5432"
