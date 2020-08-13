@@ -33,14 +33,14 @@ spec:
           livenessProbe:
             httpGet:
               port: 8080
-              path: /calculations-calc02/api/v1/health
+              path: /calculations.calc02/api/v1/health
             initialDelaySeconds: 30
             periodSeconds: 3
             timeoutSeconds: 2
           readinessProbe:
             httpGet:
               port: 8080
-              path: /calculations-calc02/api/v1/ready
+              path: /calculations.calc02/api/v1/ready
             initialDelaySeconds: 30
             periodSeconds: 2
           resources:

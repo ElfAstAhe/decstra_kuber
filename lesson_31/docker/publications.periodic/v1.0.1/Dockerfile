@@ -11,7 +11,7 @@ ENV DATA_SOURCE_NAME="jdbc/publications.periodic"\
     DATABASE_USER="decstra"\
     DATABASE_PASSWORD="12345"\
     DATABASE_APP_NAME="publications.periodic"\
-    DB_SERVER="postgres-publications-periodic"\
+    DB_SERVER="postgres-publications-periodic-5-s"\
     DB_PORT="5432"\
     APP_NAME="publications.periodic-1.0.1.war"
 
