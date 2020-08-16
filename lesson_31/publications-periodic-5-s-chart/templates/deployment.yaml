@@ -34,14 +34,14 @@ spec:
             httpGet:
               port: 8080
               path: /publications.periodic/api/v1/health
-            initialDelaySeconds: 30
+            initialDelaySeconds: 45
             periodSeconds: 3
             timeoutSeconds: 2
           readinessProbe:
             httpGet:
               port: 8080
               path: /publications.periodic/api/v1/ready
-            initialDelaySeconds: 30
+            initialDelaySeconds: 45
             periodSeconds: 2
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
